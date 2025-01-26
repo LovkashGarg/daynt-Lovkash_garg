@@ -5,6 +5,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+
 let data = [
   { id: 1, name: 'Alice', dob: '1995-05-15' },
   { id: 2, name: 'Bob', dob: '1990-07-20' },
@@ -33,7 +34,9 @@ app.get('/items', (req, res) => {
   res.json(data);
 });
 
-
+app.get('/',(req,res)=>{
+    res.send("I am live");
+})
 // for adding  a new item
 app.post('/items', (req, res) => {
   const { name, dob } = req.body;
