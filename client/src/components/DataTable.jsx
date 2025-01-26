@@ -24,7 +24,7 @@ const App = () => {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:5000/items');
+      const response = await axios.get('https://daynt-lovkash-garg-e6oh.vercel.app/items');
       setItems(response.data);
     } catch (error) {
       toast.error('Failed to fetch data.');
@@ -45,7 +45,7 @@ const App = () => {
 
     setIsSubmitting(true);
     try {
-      const response = await axios.post('http://localhost:5000/items', newItem);
+      const response = await axios.post('https://daynt-lovkash-garg-e6oh.vercel.app/items', newItem);
       setItems([...items, response.data]);
       toast.success('Item added successfully.');
       setNewItem({ name: '', dob: '' });
@@ -59,7 +59,7 @@ const App = () => {
   const handleEdit = async (id, updatedItem) => {
     setIsSubmitting(true);
     try {
-      const response = await axios.put(`http://localhost:5000/items/${id}`, updatedItem);
+      const response = await axios.put(`https://daynt-lovkash-garg-e6oh.vercel.app/items/${id}`, updatedItem);
       setItems(items.map((item) => (item.id === id ? response.data : item)));
       toast.success('Item updated successfully.');
       setEditId(null);
@@ -79,7 +79,7 @@ const App = () => {
   const handleDelete = async (id) => {
     setIsSubmitting(true);
     try {
-      await axios.delete(`http://localhost:5000/items/${id}`);
+      await axios.delete(`https://daynt-lovkash-garg-e6oh.vercel.app/items/${id}`);
       setItems(items.filter((item) => item.id !== id));
       toast.success('Item deleted successfully.');
     } catch (error) {
